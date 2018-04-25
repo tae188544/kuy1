@@ -1,7 +1,11 @@
 package sdu.cs58.jatuporn.trafficesignapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,31 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(MainActivity.this,ints, titleStrings, detailStrings);
         listView.setAdapter(myAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent detailIntent = new Intent(MainActivity.this,DetailActivity.class);
+                detailIntent.putExtra("Title", titleStrings[i]);
+                detailIntent.putExtra("Detail", detailStrings[i]);
+                detailIntent.putExtra("Image", ints[i]);
+             startActivity(detailIntent);
+            }
+        });
 
     }
+
+    public void clickLink(View view) {
+
+        Intent linkIntent = new Intent(Intent.ACTION_VIEW);
+        linkIntent.setData(Uri.parse("https://www.dlt.go.th/"));
+        startActivity(linkIntent);
+
+
+    }
+
+    public void clickAbm(View view) {
+        Intent aboutmeIntent = new Intent(MainActivity.this,Main2Activity.class);
+        startActivity(aboutmeIntent);
+    }
 }
+

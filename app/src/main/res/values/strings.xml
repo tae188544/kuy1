@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ป้ายจราจรน่ารู้</string>
+    <string name="my_name">นายจตุพร อินทร์สกุล</string>
+    <string name="my_major">หลักสูตรวิทยาการคอมพิวเตอร์</string>
+    <string name="my_university">มหาวิทยาสวนดุสิต</string>
+    <string name="my_mobile">เบอร์ติดต่อ 0831312614</string>
+    <string name="facedook">https://www.facebook.com/tae.insagul</string>
 </resources>
